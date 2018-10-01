@@ -1,0 +1,52 @@
+.navbar-brand {
+  font-family: 'Oswald';
+  border: 1px solid white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.nav-link:hover {
+  color: #e56767;
+}
+
+.btn.btn-primary{
+  background-color: #e56767;
+  border-color: #e56767;
+}
+
+.btn.btn-primary:hover{
+  background-color: #ee5566;
+  border-color: #e56767;
+}
+
+section h4,
+section h2,
+#about .card-title {
+  font-family: 'Oswald';
+  text-transform: uppercase;
+  text-shadow: 1px 1px #e56767;
+  margin-top: 0.5rem;
+}
+
+section p {
+  font-size: 0.8rem;
+}
+
+section .fas {
+  color: #e56767;
+  text-shadow: 1px 1px gray;
+}
+
+footer .copyright {
+  color: white;
+  padding: 1rem;
+  padding-left: 5rem;
+}
+
+.vertical-divider {
+  border: 0.5px solid rgba(255, 255, 255, 0.4);
+}
+
+.justify {
+  text-align: justify;
+}
