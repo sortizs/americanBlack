@@ -31,8 +31,8 @@
       <input type="number" name="telefono" id="telefono" class="form-control">
     </div>
     <div class="form-group">
-      <label for="Correo">Correo Electr&oacute;nico</label>
-      <input type="email" name="Correo" id="Correo" class="form-control">
+      <label for="correo">Correo Electr&oacute;nico</label>
+      <input type="email" name="correo" id="correo" class="form-control">
     </div>
     <div class="form-group">
       <label for="contrasena">Contraseña</label>
