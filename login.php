@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form method="post" action="php/login.php">
           <div class="form-group">
             <label for="email">Correo Electr&oacute;nico</label>
             <input type="email" class="form-control" id="email">

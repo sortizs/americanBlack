@@ -1,3 +1,12 @@
+.submit-button {
+  text-align: right;
+}
+
+.form {
+  width: 50%;
+  margin: 0.5rem auto;
+}
+
 .navbar-brand {
   font-family: 'Oswald';
   border: 1px solid white;
@@ -9,12 +18,12 @@
   color: #e56767;
 }
 
-.btn.btn-primary{
+.btn.btn-primary {
   background-color: #e56767;
   border-color: #e56767;
 }
 
-.btn.btn-primary:hover{
+.btn.btn-primary:hover {
   background-color: #ee5566;
   border-color: #e56767;
 }
@@ -35,6 +44,13 @@ section p {
 section .fas {
   color: #e56767;
   text-shadow: 1px 1px gray;
+}
+
+footer {
+  bottom: 0;
+  position: fixed;
+  left: 0;
+  width: 100%;
 }
 
 footer .copyright {

@@ -7,26 +7,20 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">
+            <li class="nav-item <?php if ($CURRENT_PAGE == "Index") {?>active<?php }?>">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-home fa-sm fa-fw"></i>
                     Inicio
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#project">
-                    <i class="fas fa-project-diagram fa-sm fa-fw"></i>
-                    Proyecto
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#about">
+            <li class="nav-item <?php if ($CURRENT_PAGE == "About") {?>active<?php }?>">
+                <a class="nav-link" href="about.php">
                     <i class="fas fa-info-circle fa-sm fa-fw"></i>
                     ¿Qui&eacute;nes somos?
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#members">
+            <li class="nav-item <?php if ($CURRENT_PAGE == "Members") {?>active<?php }?>">
+                <a class="nav-link" href="members.php">
                     <i class="fas fa-users fa-sm fa-fw"></i>
                     Integrantes
                 </a>
@@ -40,7 +34,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="auth/signup.php">
+                <a class="nav-link <?php if ($CURRENT_PAGE == "Signup") {?>active<?php }?>" href="signup.php">
                     <i class="fas fa-file-signature fa-sm fa-fw"></i>
                     Reg&iacute;strate
                 </a>
