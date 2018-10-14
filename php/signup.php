@@ -8,14 +8,14 @@
   $telefono = $_POST['telefono'];
   if (isset($_POST['contrasena'])) { $clave = sha1($_POST['contrasena']); }
 
-  if (isset($_POST)) {
+  if (!empty($_POST)) {
     $sql = "INSERT INTO USUARIO(ID, NOMBRE, APELLIDO, DIRECCION, TELEFONO, CORREO, CLAVE, TIPO_USUARIO_ID, ESTADO)
             VALUE (NULL, \"$nombre\", \"$apellido\", \"$direccion\", \"$telefono\", \"$correo\", \"$clave\", 2, 1)";
     $query = $con->query($sql);
     if ($query!=null) {
-      print '<script>alert("Registro completado con exito.");</script>';
+      print '<script>alert("Registro completado con exito.");window.location="../index.php";</script>';
     } else {
-      print '<script>alert("No se pudo agregar.");</script>';
+      print '<script>alert("No se pudo agregar.");window.location="../index.php";</script>';
     }
   }
 

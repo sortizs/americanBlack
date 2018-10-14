@@ -10,12 +10,12 @@
       <div class="modal-body">
         <form method="post" action="php/login.php">
           <div class="form-group">
-            <label for="email">Correo Electr&oacute;nico</label>
-            <input type="email" class="form-control" id="email">
+            <label for="correo">Correo Electr&oacute;nico</label>
+            <input type="email" class="form-control" id="correo" name="correo">
           </div>
           <div class="form-group">
-            <label for="password">Contrase&ntilde;a</label>
-            <input type="password" class="form-control" id="Password">
+            <label for="contrasena">Contrase&ntilde;a</label>
+            <input type="password" class="form-control" id="contrasena" name="contrasena">
           </div>
           <button type="submit" class="btn btn-primary">
             <i class="fas fa-sign-in-alt fa-sm fa-fw"></i> Ingresar

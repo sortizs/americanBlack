@@ -16,23 +16,23 @@
   <form class="form" action="php/signup.php" method="post">
     <div class="form-group">
       <label for="nombre">Nombre</label>
-      <input type="text" name="nombre" id="nombre" class="form-control">
+      <input type="text" name="nombre" id="nombre" class="form-control" autocomplete="off">
     </div>
     <div class="form-group">
       <label for="apellido">Apellido</label>
-      <input type="text" name="apellido" id="apellido" class="form-control">
+      <input type="text" name="apellido" id="apellido" class="form-control" autocomplete="off">
     </div>
     <div class="form-group">
       <label for="direccion">Direcci&oacute;n</label>
-      <input type="text" name="direccion" id="direccion" class="form-control">
+      <input type="text" name="direccion" id="direccion" class="form-control" autocomplete="off">
     </div>
     <div class="form-group">
       <label for="telefono">Tel&eacute;fono</label>
-      <input type="number" name="telefono" id="telefono" class="form-control">
+      <input type="number" name="telefono" id="telefono" class="form-control" autocomplete="off">
     </div>
     <div class="form-group">
       <label for="correo">Correo Electr&oacute;nico</label>
-      <input type="email" name="correo" id="correo" class="form-control">
+      <input type="email" name="correo" id="correo" class="form-control" autocomplete="off">
     </div>
     <div class="form-group">
       <label for="contrasena">Contraseña</label>
