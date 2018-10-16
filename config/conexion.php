@@ -2,6 +2,6 @@
     $host = 'localhost';
     $user = 'root';
     $password = '';
-    $db = 'americanBlack';
+    $db = 'americanblack';
     $con = new mysqli($host, $user, $password, $db);
 ?>
