@@ -13,6 +13,9 @@
 <body>
   <?php
     include('global/navbar.php');
+  ?>
+
+  <?php
     include('../global/footer.php');
     include('../global/external-js.html');
   ?>

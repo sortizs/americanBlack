@@ -13,7 +13,7 @@
       if ($usuario['TIPO_USUARIO_id'] == 1){
         print "<script>window.location=\"../f_admin/index.php\";</script>";
       } else {
-        print "<script>window.location=\"../f_user/index.php\";</script>";
+        print "<script>window.location=\"../f_user/catalogo.php\";</script>";
       }
     }
 
