@@ -7,12 +7,6 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item <?php if ($CURRENT_PAGE == "Index") {?>active<?php }?>">
-        <a class="nav-link" href="index.php">
-          <i class="fas fa-home fa-sm fa-fw"></i>
-          Inicio
-        </a>
-      </li>
       <li class="nav-item <?php if ($CURRENT_PAGE == "Usuarios") {?>active<?php }?>">
         <a class="nav-link" href="usuarios.php">
           <i class="fas fa-users-cog fa-sm fa-fw"></i>

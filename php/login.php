@@ -10,8 +10,8 @@
     $usuario = mysqli_fetch_array($query);
 
     if ($usuario['clave'] == $clave) {
-      if ($usuario['TIPO_USUARIO_id'] == 1){
-        print "<script>window.location=\"../f_admin/index.php\";</script>";
+      if ($usuario['tipo_usuario'] == 1){
+        print "<script>window.location=\"../f_admin/productos.php\";</script>";
       } else {
         print "<script>window.location=\"../f_user/catalogo.php\";</script>";
       }

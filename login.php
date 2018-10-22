@@ -11,7 +11,7 @@
         <form method="post" action="php/login.php">
           <div class="form-group">
             <label for="correo">Correo Electr&oacute;nico</label>
-            <input type="email" class="form-control" id="correo" name="correo">
+            <input type="email" class="form-control" id="correo" name="correo" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="contrasena">Contrase&ntilde;a</label>

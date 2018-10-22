@@ -46,7 +46,10 @@
           echo "<td>{$producto['stock']}</td>";
           echo "<td>$". number_format($producto['valor']) . "</td>";
           echo "<td>{$producto['descripcion']}</td>";
-          echo "<td class=\"btn-group\"><a href=\"producto.php\" class=\"btn btn-info\">Editar</a><a href=\"eliminar.php\" class=\"btn btn-danger\">Eliminar</a></td>";
+          echo "<td class=\"btn-group\">
+                  <a href=\"producto.php\" class=\"btn btn-info\">Editar</a>
+                  <a href=\"eliminar.php\" class=\"btn btn-danger\">Eliminar</a>
+                </td>";
           echo '</tr>';
         }
       ?>
