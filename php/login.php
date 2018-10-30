@@ -10,11 +10,18 @@
     $usuario = mysqli_fetch_array($query);
 
     if ($usuario['clave'] == $clave) {
+      
+      session_start();
+      $_SESSION['loggedin'] = true;
+      $_SESSION['id'] = $usuario['id'];
+
       if ($usuario['tipo_usuario'] == 1){
         print "<script>window.location=\"../f_admin/productos.php\";</script>";
       } else {
         print "<script>window.location=\"../f_user/catalogo.php\";</script>";
       }
+    } else {
+      print "<script>window.location=\"../index.php\";</script>";
     }
 
   }

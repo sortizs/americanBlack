@@ -1,4 +1,8 @@
-<?php include('config/navigation.php') ?>
+<?php
+  include('config/navigation.php');
+  include('../config/validation.php');
+  include('php/cart.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,36 +20,53 @@
   ?>
 
   <div class="container main-container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>Carro de compras</h1>
+      </div>
+      <div class="col-md-6" style="text-align: right; vertical-align: supper">
+        <a href="php/comprar.php" class="btn btn-primary">Comprar</a>
+      </div>
+    </div>
     <table class="table">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Nombre</th>
-          <th scope="col">Subtotal</th>
+          <th scope="col">Costo</th>
           <th scope="col">Cantidad</th>
-          <th scope="col">Total</th>
+          <th scope="col">Subtotal</th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">Buso cuadros</th>
-          <td>$60.000</td>
-          <td>3</td>
-          <td>$180.000</td>
-          <td class="btn-group">
-            <a href="#" class="btn btn-outline-info">
-              <i class="fas fa-boxes fa-lg fa-fw"></i>
-            </a>
-            <a href="#" class="btn btn-outline-danger">
-              <i class="fas fa-trash-alt fa-lg fa-fw"></i>
-            </a>
-          </td>
-        </tr>
+        <?php
+          $total = 0;
+          while($carrito = mysqli_fetch_array($result)){
+
+            $sql_cantidad = "SELECT COUNT(carrito.producto) FROM carrito WHERE carrito.producto = {$carrito['id']};";
+
+            $result_cantidad = mysqli_fetch_array(mysqli_query($con, $sql_cantidad))[0];
+
+            print '<tr>';
+            print "<td>{$carrito['producto']}</td>";
+            print "<td>$". number_format($carrito['valor']) ."</td>";
+            print "<td>{$result_cantidad}</td>";
+            $subtotal = $carrito['valor'] * $result_cantidad;
+            print "<td>$". number_format($subtotal) ."</td>";
+            $total += $subtotal;
+            print "<td class=\"btn-group\">";
+            print "\t<a href=\"producto.php?id={$carrito['id']}\" class=\"btn btn-outline-info\">";
+            print "\t\t<i class=\"fas fa-boxes fa-lg fa-fw\"></i></a>";
+            print "\t<a href=\"php/eliminar.php?id={$carrito['id']}\" class=\"btn btn-outline-danger\">";
+            print "\t\t<i class=\"fas fa-trash-alt fa-lg fa-fw\"></i></a></td>";
+            print '</tr>';
+          }
+        ?>
       </tbody>
       <tfoot>
         <tr>
           <td>TOTAL</td>
-          <td colspan="3" class="text-right">$180.000</td>
+          <td colspan="3" class="text-right">$<?php print number_format($total); $_SESSION['total'] = $total; ?></td>
           <td></td>
         </tr>
       </tfoot>

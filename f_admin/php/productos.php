@@ -1,6 +1,8 @@
 <?php
   include ('../config/conexion.php');
 
-  $sql = "SELECT * FROM PRODUCTO, TIPO_PRODUCTO WHERE tipo_producto = `TIPO_PRODUCTO`.`id`";
-  $result = mysqli_query($con, $sql);
+  $sql_tipo = "SELECT * FROM TIPO_PRODUCTO";
+
+  $result_tipo = mysqli_query($con, $sql_tipo);
+
 ?>

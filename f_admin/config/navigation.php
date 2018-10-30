@@ -12,6 +12,9 @@
     case '/americanBlack/f_admin/ventas.php':
 			$CURRENT_PAGE = "Ventas";
 			$PAGE_TITLE = "Ventas";
+			break;
+		case '/americanBlack/f_admin/nuevo.php':
+			$PAGE_TITLE = "Agregar producto";
       break;
 		default:
 			$CURRENT_PAGE = "Index";

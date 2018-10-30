@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-10-2018 a las 02:56:09
+-- Tiempo de generación: 30-10-2018 a las 05:37:10
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.10
 
@@ -43,10 +43,17 @@ CREATE TABLE `carrito` (
 
 CREATE TABLE `factura` (
   `id` int(11) NOT NULL,
-  `fecha` datetime DEFAULT NULL,
-  `total` decimal(2,0) DEFAULT NULL,
-  `carrito` int(11) NOT NULL
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `total` int(11) NOT NULL,
+  `usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `factura`
+--
+
+INSERT INTO `factura` (`id`, `fecha`, `total`, `usuario`) VALUES
+(2, '2018-10-30 10:33:57', 60000, 4);
 
 -- --------------------------------------------------------
 
@@ -88,7 +95,27 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id`, `nombre`, `stock`, `valor`, `genero`, `img`, `tipo_producto_id`) VALUES
-(2, 'BUSO BLOQUES', 50, 60000, 1, 'buso-bloques.jpg', 5);
+(2, 'BUSO BLOQUES', 50, 60000, 1, 'buso-bloques.jpg', 5),
+(4, 'BLUSA MOSTAZA', 50, 28000, 2, 'BLUSA-MOSTAZA.jpg', 2),
+(5, 'BLUSA ROJA FLORES', 50, 35000, 2, 'BLUSA-ROJA-FLORES.jpg', 2),
+(6, 'PANTALON GRIS', 50, 60000, 2, 'PANTALON-GRIS.jpg', 3),
+(7, 'PANTALON NEGRO ROTOS', 50, 60000, 2, 'PANTALON-NEGRO-ROTOS.jpg', 3),
+(8, 'PANTALON BRILLO', 50, 60000, 2, 'PANTALON-BRILLO.jpg', 3),
+(9, 'BUSO BLANCO', 50, 73000, 2, 'BUSO-BLANCO.jpg', 5),
+(10, 'CAMISA AZUL', 50, 55000, 2, 'CAMISA-AZUL.jpg', 1),
+(11, 'BUSO FLORES', 50, 60000, 2, 'BUSO-FLORES.jpg', 5),
+(12, 'BUSO MOSTAZA', 50, 58000, 2, 'BUSO-MOSTAZA.jpg', 5),
+(13, 'CAMISA MARFIL', 50, 55000, 2, 'CAMISA-MARFIL.jpg', 1),
+(14, 'CAMISA NEGRA FLORES', 50, 48000, 1, 'CAMISA-NEGRA-FLORES.jpg', 1),
+(15, 'CAMISA POLO BLANCO', 50, 48000, 1, 'CAMISA-POLO-BLANCO.jpg', 1),
+(16, 'CAMISA POLO', 50, 48000, 1, 'CAMISA-POLO.jpg', 1),
+(17, 'PANATLON AZUL ROTO ', 50, 60000, 1, 'PANATLON-AZUL-ROTO.jpg', 3),
+(18, 'PANTALON NEGRO', 50, 60000, 1, 'PANTALON-NEGRO.jpg', 3),
+(19, 'PANTALON ROTOS', 50, 60000, 1, 'PANTALON-ROTOS.jpg', 3),
+(20, 'SHORT BLANCO', 50, 28000, 1, 'SHORT-BLANCO.jpg', 4),
+(21, 'SHORT GRIS MILITAR', 50, 28000, 1, 'SHORT-GRIS-MILITAR.jpg', 4),
+(22, 'BUSO MORADO BLOQUES', 50, 60000, 1, 'BUSO-MORADO-BLOQUES.jpg', 5),
+(23, 'BUSO MOSTAZA BLOQUES', 50, 60000, 1, 'BUSO-MOSTAZA-BLOQUES.jpg', 5);
 
 -- --------------------------------------------------------
 
@@ -174,7 +201,7 @@ ALTER TABLE `carrito`
 --
 ALTER TABLE `factura`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_FACTURA_CARRITO1_idx` (`carrito`);
+  ADD KEY `usuario_carrito` (`usuario`);
 
 --
 -- Indices de la tabla `genero`
@@ -217,19 +244,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_usuario`
@@ -258,7 +285,7 @@ ALTER TABLE `carrito`
 -- Filtros para la tabla `factura`
 --
 ALTER TABLE `factura`
-  ADD CONSTRAINT `fk_FACTURA_CARRITO1` FOREIGN KEY (`carrito`) REFERENCES `carrito` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `usuario_carrito` FOREIGN KEY (`usuario`) REFERENCES `usuario` (`id`);
 
 --
 -- Filtros para la tabla `producto`

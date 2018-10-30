@@ -28,7 +28,9 @@
       <li class="nav-item <?php if ($CURRENT_PAGE == "Carrito") {?>active<?php }?>">
         <a class="nav-link" href="carrito.php">
           <i class="fas fa-shopping-cart fa-sm fa-fw"></i>
-          <span class="badge badge-<?php if ($CURRENT_PAGE == "Carrito") {?>light<?php } else {?>dark<?php } ?>"><?php print $cart ?></span>
+          <span class="badge badge-<?php if ($CURRENT_PAGE == "Carrito") {?>light<?php } else {?>dark<?php } ?>">
+            <?php print $cart ?>
+          </span>
         </a>
       </li>
       <!-- <li class="nav-item <?php if ($CURRENT_PAGE == "Cuenta") {?>active<?php }?>">

@@ -1,7 +1,5 @@
 <?php
   include('config/navigation.php');
-  include('php/productos.php');
-  setlocale(LC_MONETARY, 'en_US');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +17,7 @@
     include('global/navbar.php');
   ?>
 
-  <div class="m-5">
+  <div class="container main-container">
     <div class="row">
       <div class="col-md-6">
         <h1>Listado de productos</h1>
@@ -40,16 +38,22 @@
       </thead>
       <tbody>
       <?php
-        while($producto = mysqli_fetch_array($result)){
+        include ('../config/conexion.php');
+
+        $sql = "SELECT * FROM producto AS pr, tipo_producto AS tp WHERE pr.tipo_producto_id = tp.id";
+
+        $result = mysqli_query($con, $sql);
+
+        while ($producto = mysqli_fetch_array($result)){
           echo '<tr>';
-          echo "<td>{$producto['nombre']}</td>";
+          echo "<td>". ucfirst(strtolower($producto['nombre'])) ."</td>";
           echo "<td>{$producto['stock']}</td>";
           echo "<td>$". number_format($producto['valor']) . "</td>";
-          echo "<td>{$producto['descripcion']}</td>";
-          echo "<td class=\"btn-group\">
-                  <a href=\"producto.php\" class=\"btn btn-info\">Editar</a>
-                  <a href=\"eliminar.php\" class=\"btn btn-danger\">Eliminar</a>
-                </td>";
+          echo "<td>". ucwords(strtolower($producto['descripcion'])) ."</td>";
+          echo "<td class=\"btn-group\">".
+                  // <a href=\"producto.php\" class=\"btn btn-info\">Editar</a>
+                  "\t<a href=\"php/eliminar.php?id={$producto['id']}\" class=\"btn btn-outline-danger\">".
+                  "<i class=\"fas fa-trash-alt fa-lg fa-fw\"></i></a></td>";
           echo '</tr>';
         }
       ?>
